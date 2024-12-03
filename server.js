@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors')
 require('./config/connect');
 
+const swaggerDocs = require("./swagger");
+swaggerDocs(app);
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,4 +30,5 @@ app.use('/votes', voteRoutes);
 
 
 app.listen( 3005 , ()=>{console.log('server work !');
+
 })
